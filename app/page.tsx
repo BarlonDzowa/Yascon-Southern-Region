@@ -37,7 +37,8 @@ const SPLASHES = {
 };
 
 const SPLASH_ICONS = {
-  mangochi: "🌊", chiradzulu: "🌿", mulanje: "🏔️", thyolo: "🌱", blantyre: "🏙️", zomba: "⛰️",
+  mangochi: "🌊", chiradzulu: "🌿", mulanje: "🏔️", thyolo: "🌱",
+  blantyre: "🏙️", zomba: "⛰️",
   proj1:"🌊",proj2:"🌿",proj3:"🌳",proj4:"👥",proj5:"🌾",proj6:"♻️",
   act1:"🌳",act2:"🎤",vol:"🤝",news1:"📢",news2:"🌳",news3:"🎉",
   g1:"🌱",g2:"🌍",g3:"🌿",g4:"📚",g5:"🌱",g6:"🤲",g7:"🌱",g8:"🏖️",
@@ -51,62 +52,47 @@ function SplashImage({ src, alt, splashKey, className, style = {} }) {
   if (broken) {
     return (
       <div className={className} style={{ background: bg, display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", gap:8, ...style }}>
-        <span style={{ fontSize:40 }}>{icon}</span>
-        <span style={{ color:"rgba(255,255,255,0.7)", fontSize:12, textAlign:"center", padding:"0 8px" }}>{alt}</span>
+        <span style={{ fontSize:48 }}>{icon}</span>
+        <span style={{ color:"rgba(255,255,255,0.7)", fontSize:12, textAlign:"center", padding:"0 16px" }}>{alt}</span>
       </div>
     );
   }
   return (
-    <img src={src} alt={alt} className={className}
-      style={{ objectFit:"cover", width:"100%", height:"100%", ...style }}
-      onError={() => setBroken(true)}
-    />
+    <img src={src} alt={alt} className={className} style={{ objectFit:"cover", width:"100%", height:"100%", ...style }} onError={() => setBroken(true)} />
   );
 }
 
-// ── All 11 uploaded photos mapped to the most fitting sections ──────────────
-// image1.png  → Hands cupping a fern seedling with soil
-// image2.png  → Child in blue shirt holding a seedling
-// image3.png  → "Planting trees benefits the whole world" poster
-// image4.png  → Hands holding a green seedling (pink sleeves)
-// image5.png  → Row of tall tree seedlings in black nursery pots
-// image6.png  → Overhead view of a large seedling nursery
-// image7.png  → Aerial drone view of dense green forest
-// image8.png  → Boy planting in red Malawian soil (real community scene)
-// image9.png  → Single seedling in red Malawian soil, blue sky
-// image10.png → Community tree planting with mountains in background
-// image11.png → Hands cupping a fern seedling (same scene as image1)
 const IMGS = {
-  hero:       "/image7.png",   // aerial forest — dramatic full-bleed hero bg
-  about1:     "/image1.png",   // hands with fern — intimate care & nurturing
-  about2:     "/image4.png",   // hands with seedling — community nurturing
-  blantyre:   "/image8.png",   // real Malawi community planting scene
-  zomba:      "/image10.png",  // community planting with mountains — Zomba Plateau
-  mangochi:   "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80",
-  chiradzulu: "/image9.png",   // single seedling in red soil — indigenous planting
-  mulanje:    "/image11.png",  // hands with fern — cedar forest care
-  thyolo:     "/image5.png",   // rows of seedlings — tea estate agroforestry
-  proj1:      "/image6.png",   // large nursery — ecosystem stewardship
-  proj2:      "/image9.png",   // seedling in Malawian soil — Shire River riparian
-  proj3:      "/image7.png",   // aerial forest — reforestation drive
-  proj4:      "/image2.png",   // child with seedling — youth leadership
-  proj5:      "/image4.png",   // hands with seedling — sustainable agriculture
-  proj6:      "/image8.png",   // community scene — clean-up campaigns
-  act1:       "/image10.png",  // community group planting — milestone activities
-  act2:       "/image3.png",   // planting poster — summits & awareness campaigns
-  vol:        "/image11.png",  // hands with plant — volunteer spirit
-  news1:      "/image1.png",   // hands with fern — call for volunteers
-  news2:      "/image7.png",   // aerial forest — 10,000 trees milestone news
-  news3:      "/image3.png",   // planting poster — youth summit events
-  g1:         "/image6.png",   // seedling nursery — community conservation
-  g2:         "/image7.png",   // aerial forest — tree planting drive
-  g3:         "/image4.png",   // hands seedling — youth with seedlings
-  g4:         "/image10.png",  // community planting — education session
-  g5:         "/image5.png",   // seedling rows — nurturing new growth
-  g6:         "/image1.png",   // hands fern — hands for the earth
-  g7:         "/image9.png",   // seedling in soil — seedling care
-  g8:         "/image8.png",   // boy planting — community initiative
-  contact:    "/image10.png",  // community with mountains — connect with us
+  hero: "/image7.png",
+  about1: "/image1.png",
+  about2: "/image4.png",
+  blantyre: "/image8.png",
+  zomba: "/image10.png",
+  mangochi: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80",
+  chiradzulu: "/image9.png",
+  mulanje: "/image11.png",
+  thyolo: "/image5.png",
+  proj1: "/image6.png",
+  proj2: "/image9.png",
+  proj3: "/image7.png",
+  proj4: "/image2.png",
+  proj5: "/image4.png",
+  proj6: "/image8.png",
+  act1: "/image10.png",
+  act2: "/image3.png",
+  vol: "/image11.png",
+  news1: "/image1.png",
+  news2: "/image7.png",
+  news3: "/image3.png",
+  g1: "/image6.png",
+  g2: "/image7.png",
+  g3: "/image4.png",
+  g4: "/image10.png",
+  g5: "/image5.png",
+  g6: "/image1.png",
+  g7: "/image9.png",
+  g8: "/image8.png",
+  contact: "/image10.png",
 };
 
 export default function YasconSouthern() {
@@ -180,148 +166,189 @@ export default function YasconSouthern() {
     setContactForm({ name:'', email:'', subject:'', message:'' });
   };
 
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const sections = ['home','about','districts','projects','activities','goals','volunteer','news','gallery','contact'];
+
   return (
     <div className="font-sans">
 
-      {/* ══════ HOME ══════ */}
-      <section className="relative overflow-hidden bg-green-900" id="home">
-        <div className="absolute inset-0">
-          <SplashImage src={IMGS.hero} alt="YASCON Southern Region" splashKey="hero" className="w-full h-full" style={{ objectFit:"cover", opacity:0.35 }} />
-          <div className="absolute inset-0 bg-gradient-to-br from-green-950/80 via-green-900/60 to-green-800/40" />
+      {/* ══════ STICKY NAV WITH SEARCH ══════ */}
+      <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-8 py-3" style={{ background:'rgba(10,40,15,0.80)', backdropFilter:'blur(14px)', borderBottom:'1px solid rgba(255,255,255,0.08)' }}>
+        <div className="flex items-center gap-2">
+          <span className="text-green-400 text-xl">🌿</span>
+          <span className="text-white font-black text-sm tracking-widest uppercase">YASCON <span className="text-green-400">Southern</span></span>
         </div>
-        <div className="relative z-10 max-w-6xl mx-auto px-5 py-8 lg:py-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-6">
-                <span className="text-green-300 text-[11px] font-black tracking-[0.15em] uppercase">YASCON</span>
-                <span className="text-white/50 text-xs">•</span>
-                <span className="text-white/70 text-xs">Southern Region • Malawi</span>
-              </div>
-              <h1 className="font-display text-5xl lg:text-6xl text-white mb-4 leading-tight">
-                <span className="block text-green-300 text-sm font-bold tracking-[0.2em] uppercase mb-2">SOUTHERN MALAWI</span>
-                Protecting the South,<br/>
-                <span className="text-green-300">Empowering Youth</span>
-              </h1>
-              <p className="text-green-100/80 text-base leading-relaxed mb-8 max-w-lg">
-                YASCON Southern Region unites passionate young conservationists across Blantyre, Zomba, Mangochi, Chiradzulu, Mulanje and Thyolo to protect our lakes, forests and communities for future generations.
-              </p>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
-                {[{n:"150+",l:"Volunteers"},{n:"25",l:"Projects"},{n:"10K+",l:"Trees"},{n:"6",l:"Districts"}].map(s => (
-                  <div key={s.l} className="bg-white/10 border border-white/15 rounded-2xl p-3 text-center backdrop-blur-sm">
-                    <div className="text-2xl font-black text-white">{s.n}</div>
-                    <div className="text-green-300 text-[11px] font-semibold tracking-wide mt-0.5">{s.l}</div>
-                  </div>
-                ))}
-              </div>
-              <p className="text-green-300/60 text-xs tracking-widest">↓ Scroll down to explore all sections</p>
+        <div className="hidden md:flex items-center gap-5">
+          {['About','Districts','Projects','Activities','Goals','Volunteer','News','Gallery','Contact'].map(item => (
+            <a key={item} href={`#${item.toLowerCase()}`} className="text-white/70 hover:text-green-400 text-xs font-semibold tracking-wide uppercase transition-colors">{item}</a>
+          ))}
+        </div>
+        <div className="flex items-center gap-2 relative">
+          {searchOpen && (
+            <input autoFocus type="text" value={searchQuery} onChange={e => setSearchQuery(e.target.value)}
+              onKeyDown={e => { if(e.key==='Escape') { setSearchOpen(false); setSearchQuery(''); } }}
+              placeholder="Search sections..."
+              className="w-48 px-4 py-1.5 rounded-full bg-white/10 border border-white/25 text-white text-xs placeholder-white/40 focus:outline-none focus:border-green-400" />
+          )}
+          <button onClick={() => { setSearchOpen(!searchOpen); setSearchQuery(''); }}
+            className="w-9 h-9 rounded-full flex items-center justify-center transition-colors"
+            style={{ background: searchOpen ? 'rgba(21,128,61,0.9)' : 'rgba(255,255,255,0.12)' }} title="Search">
+            {searchOpen
+              ? <span className="text-white text-sm font-bold">✕</span>
+              : <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            }
+          </button>
+          {searchOpen && searchQuery.length > 0 && (
+            <div className="absolute top-12 right-0 w-56 rounded-2xl overflow-hidden shadow-2xl border border-white/10" style={{ background:'rgba(10,40,15,0.97)', backdropFilter:'blur(20px)' }}>
+              {sections.filter(s => s.includes(searchQuery.toLowerCase())).length === 0
+                ? <div className="px-5 py-4 text-white/50 text-sm">No results found</div>
+                : sections.filter(s => s.includes(searchQuery.toLowerCase())).map(s => (
+                  <a key={s} href={`#${s}`} onClick={() => { setSearchOpen(false); setSearchQuery(''); }}
+                    className="flex items-center gap-3 px-5 py-3 hover:bg-green-600/30 transition-colors border-b border-white/5 last:border-0">
+                    <span className="text-green-400 text-xs">→</span>
+                    <span className="text-white text-sm capitalize font-semibold">{s}</span>
+                  </a>
+                ))
+              }
             </div>
-            <div className="hidden lg:block min-w-0">
-              <div className="rounded-3xl overflow-hidden h-96 shadow-2xl">
-                <SplashImage src={IMGS.hero} alt="Southern Malawi conservation" splashKey="hero" className="w-full h-full" />
-              </div>
-            </div>
+          )}
+        </div>
+      </nav>
+
+      {/* ══════ HOME ══════ */}
+      <section className="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden pt-16" id="home">
+        <div className="absolute inset-0 z-0">
+          <SplashImage src={IMGS.hero} alt="Aerial forest view" splashKey="hero" className="w-full h-full" style={{ objectFit:"cover", filter:"brightness(0.45)" }} />
+        </div>
+        <div className="relative z-10 max-w-4xl mx-auto px-8">
+          <div className="inline-block bg-white/10 backdrop-blur-sm border border-white/20 text-white text-[11px] font-black tracking-[0.2em] uppercase px-5 py-2 rounded-full mb-6">
+            YASCON • Southern Region • Malawi
           </div>
+          <h1 className="font-display text-6xl md:text-8xl text-white font-black leading-none mb-4 tracking-tight">
+            SOUTHERN MALAWI<br />
+            <span className="text-green-400">Protecting the South,<br />Empowering Youth</span>
+          </h1>
+          <p className="text-green-100 text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+            YASCON Southern Region unites passionate young conservationists across southern district include Blantyre, Zomba, Mangochi, Chiradzulu, Mulanje and Thyolo to protect our lakes, forests and communities for future generations.
+          </p>
+          <div className="flex flex-wrap justify-center gap-8 mb-10">
+            {[{n:"150+",l:"Volunteers"},{n:"25",l:"Projects"},{n:"10K+",l:"Trees"},{n:"6",l:"Districts"}].map(s => (
+              <div key={s.l} className="text-center">
+                <div className="text-4xl font-black text-green-400">{s.n}</div>
+                <div className="text-white/70 text-sm font-semibold tracking-wide mt-1">{s.l}</div>
+              </div>
+            ))}
+          </div>
+          <p className="text-white/40 text-sm tracking-widest animate-bounce">↓ Scroll down to explore all sections</p>
         </div>
       </section>
 
       {/* ══════ ABOUT ══════ */}
-      <section className="min-h-screen bg-white py-24" id="about">
+      <section className="py-14 bg-white" id="about">
         <div className="max-w-6xl mx-auto px-8">
-          <div className="text-center mb-16">
-            <span className="inline-block bg-green-100 text-green-700 text-[11px] font-black tracking-[0.15em] uppercase px-4 py-1.5 rounded-full mb-4">Who We Are</span>
+          <div className="text-center mb-10">
+            <span className="inline-block bg-green-100 text-green-700 text-[11px] font-black tracking-[0.15em] uppercase px-4 py-1.5 rounded-full mb-3">Who We Are</span>
             <h2 className="font-display text-5xl text-green-900 mb-3 leading-tight">About YASCON Southern Region</h2>
-            <p className="text-gray-500 text-base max-w-lg mx-auto leading-relaxed">A youth-led conservation movement transforming Southern Malawi, one district at a time.</p>
+            <p className="text-gray-500 text-base max-w-xl mx-auto leading-relaxed">A youth-led conservation movement transforming Southern Malawi, one district at a time.</p>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-16">
-            <div>
-              <p className="text-gray-600 text-base leading-relaxed mb-6">The YASCON Southern Region chapter is a vibrant community of young people from Blantyre, Zomba, Mangochi, Chiradzulu, Mulanje and Thyolo united by a passion for nature and environmental conservation.</p>
-              <p className="text-gray-600 text-base leading-relaxed mb-8">We empower the youth of Southern Malawi to take meaningful action through community initiatives, environmental education, tree planting, lake and river protection, and sustainable development programs that create lasting positive change.</p>
-              <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+            <div className="relative h-72 rounded-3xl overflow-hidden shadow-xl">
+              <SplashImage src={IMGS.about1} alt="Hands nurturing seedling" splashKey="about1" className="w-full h-full" />
+              <div className="absolute inset-0 bg-gradient-to-t from-green-700/60 to-transparent flex items-end p-7">
+                <p className="text-white text-lg font-semibold leading-snug">"Every tree we plant is a promise to future generations."</p>
+              </div>
+            </div>
+            <div className="flex flex-col justify-center gap-4">
+              <p className="text-gray-700 text-base leading-relaxed">
+                The YASCON Southern Region chapter is a vibrant community of young people from Blantyre, Zomba, Mangochi, Chiradzulu, Mulanje and Thyolo united by a passion for nature and environmental conservation.
+              </p>
+              <p className="text-gray-700 text-base leading-relaxed">
+                We empower the youth of Southern Malawi to take meaningful action through community initiatives, environmental education, tree planting, lake and river protection, and sustainable development programs that create lasting positive change.
+              </p>
+              <div className="grid grid-cols-2 gap-3">
                 {[
-                  { icon:<Award size={20}/>, title:"NGO Status", desc:"Registered Non-Governmental Organization" },
-                  { icon:<Users size={20}/>, title:"Youth-Led", desc:"Driven by passionate young leaders" },
-                  { icon:<Globe size={20}/>, title:"6 Districts", desc:"Blantyre, Zomba, Mangochi & more" },
-                  { icon:<Leaf size={20}/>, title:"Part of YASCON", desc:"One of three Malawi regional chapters" },
+                  { icon:<Award size={18}/>, title:"NGO Status", desc:"Registered Non-Governmental Organization" },
+                  { icon:<Users size={18}/>, title:"Youth-Led", desc:"Driven by passionate young leaders" },
+                  { icon:<MapPin size={18}/>, title:"6 Districts", desc:"Blantyre, Zomba, Mangochi & more" },
+                  { icon:<Globe size={18}/>, title:"Part of YASCON", desc:"One of three Malawi regional chapters" },
                 ].map((item,i) => (
-                  <div key={i} className="bg-green-50 rounded-2xl p-4 border border-green-100">
-                    <div className="text-green-600 mb-2">{item.icon}</div>
-                    <div className="font-bold text-green-900 text-sm mb-1">{item.title}</div>
-                    <div className="text-gray-500 text-xs leading-relaxed">{item.desc}</div>
+                  <div key={i} className="bg-green-50 rounded-2xl p-4 flex gap-3 items-start">
+                    <div className="text-green-600 mt-0.5">{item.icon}</div>
+                    <div>
+                      <div className="font-bold text-green-900 text-sm">{item.title}</div>
+                      <div className="text-gray-500 text-xs mt-0.5">{item.desc}</div>
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
-            <div className="flex flex-col gap-6">
-              <div className="rounded-2xl overflow-hidden h-56 shadow-md">
-                <SplashImage src={IMGS.about1} alt="YASCON About" splashKey="about1" className="w-full h-full" />
-              </div>
-              <div className="bg-green-900 rounded-2xl p-6 text-white">
-                <div className="mb-4">
-                  <div className="text-green-300 font-bold text-sm mb-1">🎯 Our Mission</div>
-                  <p className="text-green-100/80 text-sm leading-relaxed">To empower Southern Malawian youth to protect and restore our natural environment through education, action, and community leadership.</p>
-                </div>
-                <div>
-                  <div className="text-green-300 font-bold text-sm mb-1">🌍 Our Vision</div>
-                  <p className="text-green-100/80 text-sm leading-relaxed">A Southern Malawi where thriving ecosystems and empowered youth communities exist in harmony for generations to come.</p>
-                </div>
-              </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+            <div className="rounded-3xl p-7 text-white" style={{ background:'linear-gradient(135deg, rgba(21,128,61,0.95) 0%, rgba(22,101,52,0.98) 100%)' }}>
+              <div className="text-2xl mb-2">🎯</div>
+              <h3 className="font-display text-xl mb-2">Our Mission</h3>
+              <p className="text-green-100 text-sm leading-relaxed">To empower Southern Malawian youth to protect and restore our natural environment through education, action, and community leadership.</p>
+            </div>
+            <div className="bg-green-50 rounded-3xl p-7 border border-green-100">
+              <div className="text-2xl mb-2">🌍</div>
+              <h3 className="font-display text-xl text-green-900 mb-2">Our Vision</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">A Southern Malawi where thriving ecosystems and empowered youth communities exist in harmony for generations to come.</p>
             </div>
           </div>
-          <div className="bg-green-50 rounded-3xl p-10 border border-green-100">
-            <h3 className="font-display text-2xl text-green-900 mb-8 text-center">Our Impact in Numbers</h3>
+          <div className="rounded-3xl p-8 text-white text-center" style={{ background:'linear-gradient(135deg, rgba(21,128,61,0.95) 0%, rgba(22,101,52,0.98) 100%)' }}>
+            <h3 className="font-display text-2xl mb-6">Our Impact in Numbers</h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {[{n:"150+",l:"Volunteers"},{n:"25",l:"Active Projects"},{n:"10,000+",l:"Trees Planted"},{n:"6",l:"Districts Covered"}].map(s => (
-                <div key={s.l} className="text-center">
-                  <div className="text-4xl font-black text-green-700 mb-1">{s.n}</div>
-                  <div className="text-gray-500 text-sm font-semibold">{s.l}</div>
+                <div key={s.l}>
+                  <div className="text-4xl font-black text-green-400">{s.n}</div>
+                  <div className="text-green-200 text-sm mt-1">{s.l}</div>
                 </div>
               ))}
             </div>
           </div>
-          <div className="mt-10 text-center bg-green-900 rounded-3xl p-8 text-white">
-            <h3 className="font-display text-2xl mb-3">Get Involved</h3>
-            <p className="text-green-200/80 text-sm leading-relaxed max-w-xl mx-auto">Your support — whether time, skills, or resources — helps us empower more youth and protect our environment. Contact us at <span className="text-green-300 font-semibold">yasconmw@outlook.com</span></p>
+          <div className="text-center mt-8">
+            <p className="text-gray-500 text-sm">Get Involved</p>
+            <p className="text-green-800 text-sm font-semibold">Your support — whether time, skills, or resources — helps us empower more youth and protect our environment. Contact us at <span className="underline">yasconmw@outlook.com</span></p>
           </div>
         </div>
       </section>
 
       {/* ══════ DISTRICTS ══════ */}
-      <section className="min-h-screen bg-green-50 py-24" id="districts">
+      <section className="py-14 bg-green-50" id="districts">
         <div className="max-w-6xl mx-auto px-8">
-          <div className="text-center mb-16">
-            <span className="inline-block bg-green-100 text-green-700 text-[11px] font-black tracking-[0.15em] uppercase px-4 py-1.5 rounded-full mb-4">Where We Work</span>
+          <div className="text-center mb-10">
+            <span className="inline-block bg-green-100 text-green-700 text-[11px] font-black tracking-[0.15em] uppercase px-4 py-1.5 rounded-full mb-3">Where We Work</span>
             <h2 className="font-display text-5xl text-green-900 mb-3 leading-tight">Our 6 Districts</h2>
             <p className="text-gray-500 text-base max-w-lg mx-auto leading-relaxed">Conservation work spanning six districts across Southern Malawi — each with dedicated volunteers and growing impact.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {districts.map((d,i) => (
-              <div key={i} className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-green-50">
-                <div className="h-44 relative overflow-hidden">
+              <div key={i} className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <div className="h-44 overflow-hidden relative">
                   <SplashImage src={IMGS[d.splashKey]} alt={d.name} splashKey={d.splashKey} className="w-full h-full" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent flex items-end p-4">
-                    <div className="flex items-center gap-2">
-                      <span className="text-2xl">{d.icon}</span>
-                      <h3 className="font-display text-xl text-white">{d.name}</h3>
-                    </div>
+                  <div className="absolute top-4 left-4">
+                    <span className="bg-white/90 backdrop-blur-sm text-green-900 font-black text-xs px-3 py-1.5 rounded-full">{d.icon} {d.name}</span>
                   </div>
                 </div>
-                <div className="p-6">
-                  <p className="text-gray-500 text-sm leading-relaxed mb-4">{d.description}</p>
-                  <ul className="flex flex-col gap-1.5 mb-5">
+                <div className="p-5">
+                  <p className="text-gray-600 text-sm leading-relaxed mb-4">{d.description}</p>
+                  <ul className="space-y-1 mb-4">
                     {d.highlights.map((h,j) => (
-                      <li key={j} className="flex items-center gap-2 text-xs text-gray-600">
-                        <CheckCircle size={12} className="text-green-500 flex-shrink-0" />{h}
+                      <li key={j} className="flex items-center gap-2 text-xs text-gray-500">
+                        <CheckCircle size={13} className="text-green-500 flex-shrink-0" /> {h}
                       </li>
                     ))}
                   </ul>
-                  <div className="grid grid-cols-2 gap-3 pt-4 border-t border-green-50">
-                    <div className="text-center">
+                  <div className="flex gap-4 pt-3 border-t border-green-50">
+                    <div className="text-center flex-1">
                       <div className="font-black text-green-700 text-lg">{d.volunteers}</div>
-                      <div className="text-gray-400 text-[11px]">Volunteers</div>
+                      <div className="text-gray-400 text-xs">Volunteers</div>
                     </div>
-                    <div className="text-center">
+                    <div className="text-center flex-1">
                       <div className="font-black text-green-700 text-lg">{d.trees}</div>
-                      <div className="text-gray-400 text-[11px]">Trees Planted</div>
+                      <div className="text-gray-400 text-xs">Trees Planted</div>
                     </div>
                   </div>
                 </div>
@@ -332,27 +359,25 @@ export default function YasconSouthern() {
       </section>
 
       {/* ══════ PROJECTS ══════ */}
-      <section className="min-h-screen bg-white py-24" id="projects">
+      <section className="py-14 bg-white" id="projects">
         <div className="max-w-6xl mx-auto px-8">
-          <div className="text-center mb-16">
-            <span className="inline-block bg-green-100 text-green-700 text-[11px] font-black tracking-[0.15em] uppercase px-4 py-1.5 rounded-full mb-4">What We Do</span>
+          <div className="text-center mb-10">
+            <span className="inline-block bg-green-100 text-green-700 text-[11px] font-black tracking-[0.15em] uppercase px-4 py-1.5 rounded-full mb-3">What We Do</span>
             <h2 className="font-display text-5xl text-green-900 mb-3 leading-tight">Our Projects</h2>
             <p className="text-gray-500 text-base max-w-lg mx-auto leading-relaxed">Conservation initiatives making real impact across the Southern Region communities.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {projects.map((p,i) => (
               <div key={i} className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-green-50">
-                <div className="h-44 relative overflow-hidden">
+                <div className="h-44 overflow-hidden">
                   <SplashImage src={IMGS[p.splashKey]} alt={p.title} splashKey={p.splashKey} className="w-full h-full" />
                 </div>
-                <div className="p-6">
-                  <div className="flex items-start justify-between gap-2 mb-3">
-                    <div className="flex items-center gap-2">
-                      <span className="text-xl">{p.icon}</span>
-                      <h3 className="font-display text-lg text-green-900 leading-snug">{p.title}</h3>
-                    </div>
-                    <span className={`flex-shrink-0 text-[10px] font-black px-2.5 py-1 rounded-full tracking-wide ${p.status === 'Ongoing' ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'}`}>{p.status}</span>
+                <div className="p-5">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-2xl">{p.icon}</span>
+                    <span className={`text-[10px] font-black px-2.5 py-1 rounded-full ${p.status==="Ongoing" ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-600"}`}>{p.status}</span>
                   </div>
+                  <h3 className="font-display text-lg text-green-900 mb-2 leading-snug">{p.title}</h3>
                   <p className="text-gray-500 text-sm leading-relaxed">{p.description}</p>
                 </div>
               </div>
@@ -362,28 +387,27 @@ export default function YasconSouthern() {
       </section>
 
       {/* ══════ ACTIVITIES ══════ */}
-      <section className="min-h-screen bg-green-50 py-24" id="activities">
+      <section className="py-14 text-green-900" style={{ background: "rgba(220,252,231,0.45)" }} id="activities">
         <div className="max-w-6xl mx-auto px-8">
-          <div className="text-center mb-16">
-            <span className="inline-block bg-green-100 text-green-700 text-[11px] font-black tracking-[0.15em] uppercase px-4 py-1.5 rounded-full mb-4">Track Record</span>
+          <div className="text-center mb-10">
+            <span className="inline-block bg-green-100/80 text-green-700 text-[11px] font-black tracking-[0.15em] uppercase px-4 py-1.5 rounded-full mb-3">Track Record</span>
             <h2 className="font-display text-5xl text-green-900 mb-3 leading-tight">Activities Done</h2>
-            <p className="text-gray-500 text-base max-w-lg mx-auto leading-relaxed">A complete record of all conservation activities completed by the Southern Region chapter in 2025.</p>
+            <p className="text-green-700 text-base max-w-lg mx-auto leading-relaxed">A complete record of all conservation activities completed by the Southern Region chapter in 2025.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {activitiesDone.map((a,i) => (
-              <div key={i} className="bg-white rounded-3xl overflow-hidden shadow-sm border border-green-50">
-                <div className="h-40 relative overflow-hidden">
+              <div key={i} className="bg-white/60 backdrop-blur-sm rounded-3xl overflow-hidden border border-green-200/50">
+                <div className="h-40 overflow-hidden">
                   <SplashImage src={IMGS[a.splashKey]} alt={a.title} splashKey={a.splashKey} className="w-full h-full" />
-                  <div className="absolute top-3 left-3">
-                    <span className="bg-green-600 text-white text-[10px] font-black px-2.5 py-1 rounded-full tracking-wide">{a.month} {a.year} ✓ Completed</span>
-                  </div>
                 </div>
-                <div className="p-6">
-                  <h3 className="font-display text-lg text-green-900 mb-2">{a.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed mb-3">{a.description}</p>
-                  <div className="flex items-center gap-1.5 text-green-600 text-xs font-bold">
-                    <Star size={12} /> Impact: {a.impact}
+                <div className="p-5">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="text-[11px] font-black bg-green-100 text-green-700 px-3 py-1 rounded-full">{a.month} {a.year}</span>
+                    <span className="text-[11px] text-green-600 font-bold">✓ Completed</span>
                   </div>
+                  <h3 className="font-display text-lg text-green-900 mb-2 leading-snug">{a.title}</h3>
+                  <p className="text-green-700 text-sm leading-relaxed mb-3">{a.description}</p>
+                  <div className="text-green-600 text-xs font-bold">📊 Impact: {a.impact}</div>
                 </div>
               </div>
             ))}
@@ -392,67 +416,72 @@ export default function YasconSouthern() {
       </section>
 
       {/* ══════ GOALS ══════ */}
-      <section className="min-h-screen bg-white py-24" id="goals">
+      <section className="py-14 bg-green-50" id="goals">
         <div className="max-w-6xl mx-auto px-8">
-          <div className="text-center mb-16">
-            <span className="inline-block bg-green-100 text-green-700 text-[11px] font-black tracking-[0.15em] uppercase px-4 py-1.5 rounded-full mb-4">Looking Ahead</span>
+          <div className="text-center mb-10">
+            <span className="inline-block bg-green-100 text-green-700 text-[11px] font-black tracking-[0.15em] uppercase px-4 py-1.5 rounded-full mb-3">Looking Ahead</span>
             <h2 className="font-display text-5xl text-green-900 mb-3 leading-tight">Upcoming Goals</h2>
             <p className="text-gray-500 text-base max-w-lg mx-auto leading-relaxed">Our vision and targets for the Southern Region in 2026 and beyond.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {upcomingGoals.map((g,i) => (
-              <div key={i} className="bg-green-50 rounded-3xl p-6 border border-green-100 hover:border-green-300 transition-colors">
-                <div className="w-12 h-12 bg-green-900 rounded-2xl flex items-center justify-center text-green-300 mb-4">{g.icon}</div>
+              <div key={i} className="bg-white rounded-3xl p-6 shadow-sm border border-green-50">
+                <div className="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center text-green-700 mb-4">{g.icon}</div>
                 <h3 className="font-display text-lg text-green-900 mb-2 leading-snug">{g.title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed mb-4">{g.description}</p>
-                <div className="flex items-center gap-1.5 text-green-600 text-xs font-bold mb-3">
-                  <Target size={12} /> Target: {g.deadline}
+                <div className="text-xs text-green-700 font-semibold mb-2">🎯 Target: {g.deadline}</div>
+                <div className="flex items-center justify-between text-xs text-gray-400 mb-1">
+                  <span>Progress</span><span>{g.progress}%</span>
                 </div>
-                <div>
-                  <div className="flex justify-between text-xs text-gray-400 mb-1">
-                    <span>Progress</span><span>{g.progress}%</span>
-                  </div>
-                  <div className="w-full h-2 bg-green-100 rounded-full overflow-hidden">
-                    <div className="h-full bg-green-600 rounded-full" style={{ width:`${g.progress}%` }} />
-                  </div>
+                <div className="h-2 bg-green-100 rounded-full overflow-hidden">
+                  <div className="h-full bg-green-500 rounded-full" style={{ width:`${g.progress}%` }} />
                 </div>
               </div>
             ))}
           </div>
-          <div className="bg-green-900 rounded-3xl p-10 text-center text-white">
-            <h3 className="font-display text-2xl mb-3">Help Us Achieve These Goals</h3>
-            <p className="text-green-200/80 text-sm leading-relaxed max-w-xl mx-auto">Every volunteer, every tree planted, and every awareness raised brings us closer to a greener Southern Malawi. Scroll down to join us.</p>
+          <div className="text-center mt-10 text-white rounded-3xl p-8" style={{ background:'linear-gradient(135deg, rgba(21,128,61,0.95) 0%, rgba(22,101,52,0.98) 100%)' }}>
+            <h3 className="font-display text-2xl mb-2">Help Us Achieve These Goals</h3>
+            <p className="text-green-200 text-sm max-w-lg mx-auto">Every volunteer, every tree planted, and every awareness raised brings us closer to a greener Southern Malawi. Scroll down to join us.</p>
           </div>
         </div>
       </section>
 
       {/* ══════ VOLUNTEERS ══════ */}
-      <section className="min-h-screen bg-green-900 py-24" id="volunteer">
-        <div className="max-w-6xl mx-auto px-8">
-          <div className="text-center mb-16">
-            <span className="inline-block bg-white/10 text-green-200 text-[11px] font-black tracking-[0.15em] uppercase px-4 py-1.5 rounded-full mb-4">Join the Movement</span>
+      <section className="py-14 text-white relative overflow-hidden" id="volunteer">
+        <div className="absolute inset-0 z-0">
+          <img src="/image10.png" alt="background" style={{ width:'100%', height:'100%', objectFit:'cover', objectPosition:'center' }} />
+          <div className="absolute inset-0" style={{ background:'linear-gradient(135deg, rgba(21,128,61,0.82) 0%, rgba(20,83,45,0.88) 50%, rgba(22,101,52,0.82) 100%)' }} />
+        </div>
+        <div className="max-w-6xl mx-auto px-8 relative z-10">
+          <div className="text-center mb-10">
+            <span className="inline-block bg-white/10 text-green-200 text-[11px] font-black tracking-[0.15em] uppercase px-4 py-1.5 rounded-full mb-3">Join the Movement</span>
             <h2 className="font-display text-5xl text-white mb-3 leading-tight">Become a Volunteer</h2>
-            <p className="text-green-200/70 text-base max-w-lg mx-auto leading-relaxed">Passionate young people needed — make a real difference in Southern Malawi. Applications close January 6, 2026.</p>
+            <p className="text-green-200 text-base max-w-lg mx-auto leading-relaxed">Passionate young people needed — make a real difference in Southern Malawi. Applications close January 6, 2026.</p>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div>
-              <h3 className="font-display text-2xl text-white mb-4">Who We're Looking For</h3>
-              <p className="text-green-200/70 text-sm leading-relaxed mb-6">We're seeking passionate young people from Southern Malawi with Bachelor's degrees in:</p>
-              <div className="grid grid-cols-2 gap-2 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Left panel */}
+            <div className="bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 p-8">
+              <h3 className="font-display text-2xl mb-4">Who We're Looking For</h3>
+              <p className="text-green-200 text-sm mb-5 leading-relaxed">We're seeking passionate young people from Southern Malawi with Bachelor's degrees in:</p>
+              <div className="grid grid-cols-2 gap-2 mb-6">
                 {["Media & Communications","Information Technology","Marketing","Economics & Statistics","Youth Development","Finance","Administration","Monitoring & Evaluation","Environmental Science","Related disciplines"].map(field => (
-                  <div key={field} className="flex items-center gap-2 bg-white/10 border border-white/10 rounded-xl px-3 py-2">
-                    <CheckCircle size={13} className="text-green-400 flex-shrink-0" />
-                    <span className="text-white/80 text-xs">{field}</span>
+                  <div key={field} className="flex items-center gap-2 bg-white/10 border border-white/15 rounded-2xl px-3 py-2.5">
+                    <CheckCircle size={14} className="text-green-400 flex-shrink-0" />
+                    <span className="text-sm text-white">{field}</span>
                   </div>
                 ))}
               </div>
-              <div className="bg-white/10 border border-white/15 rounded-2xl p-6">
-                <h4 className="font-bold text-white mb-2">Why Volunteer With Us?</h4>
-                <p className="text-green-200/70 text-sm leading-relaxed">Gain hands-on conservation experience, grow your professional network, develop leadership skills, and contribute meaningfully to a greener Southern Malawi.</p>
+              <div className="relative h-52 rounded-2xl overflow-hidden border border-white/20">
+                <SplashImage src={IMGS.vol} alt="Volunteers" splashKey="vol" className="w-full h-full" />
+                <div className="absolute inset-0 bg-green-900/55 flex items-end p-6">
+                  <p className="text-white text-sm font-semibold">Why Volunteer With Us?<br /><span className="font-normal text-green-200">Gain hands-on conservation experience, grow your professional network, develop leadership skills, and contribute meaningfully to a greener Southern Malawi.</span></p>
+                </div>
               </div>
             </div>
-            <div className="bg-white/10 border border-white/15 rounded-3xl p-8 backdrop-blur-sm">
-              <h3 className="font-display text-2xl text-white mb-6">Application Form</h3>
+
+            {/* Right panel — form */}
+            <div className="bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 p-8">
+              <h3 className="font-display text-2xl mb-5">Application Form</h3>
               <form onSubmit={handleVolunteerSubmit} className="flex flex-col gap-4">
                 {[
                   { label:"Full Name *", key:"name", type:"text", placeholder:"Your full name" },
@@ -462,32 +491,32 @@ export default function YasconSouthern() {
                 ].map(f => (
                   <div key={f.key}>
                     <label className="block text-xs font-semibold mb-1.5 text-green-200">{f.label}</label>
-                    <input type={f.type} required value={formData[f.key]} onChange={e => setFormData({...formData,[f.key]:e.target.value})} placeholder={f.placeholder} className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/25 text-white text-sm placeholder-white/40 focus:outline-none focus:border-green-400 focus:ring-2 focus:ring-green-400/20" />
+                    <input type={f.type} required value={formData[f.key]} onChange={e=>setFormData({...formData,[f.key]:e.target.value})} placeholder={f.placeholder} className="w-full px-4 py-3 rounded-2xl bg-white/10 border border-white/25 text-white text-sm placeholder-white/40 focus:outline-none focus:border-green-400 focus:ring-2 focus:ring-green-400/20" />
                   </div>
                 ))}
                 <div>
                   <label className="block text-xs font-semibold mb-1.5 text-green-200">Relevant Experience</label>
-                  <textarea rows={2} value={formData.experience} onChange={e=>setFormData({...formData,experience:e.target.value})} placeholder="Your conservation experience..." className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/25 text-white text-sm placeholder-white/40 resize-none focus:outline-none focus:border-green-400 focus:ring-2 focus:ring-green-400/20" />
+                  <textarea rows={2} value={formData.experience} onChange={e=>setFormData({...formData,experience:e.target.value})} placeholder="Your conservation experience..." className="w-full px-4 py-3 rounded-2xl bg-white/10 border border-white/25 text-white text-sm placeholder-white/40 resize-none focus:outline-none focus:border-green-400 focus:ring-2 focus:ring-green-400/20" />
                 </div>
                 <div>
                   <label className="block text-xs font-semibold mb-1.5 text-green-200">Why join YASCON Southern? *</label>
-                  <textarea required rows={3} value={formData.motivation} onChange={e=>setFormData({...formData,motivation:e.target.value})} placeholder="Your motivation..." className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/25 text-white text-sm placeholder-white/40 resize-none focus:outline-none focus:border-green-400 focus:ring-2 focus:ring-green-400/20" />
+                  <textarea required rows={3} value={formData.motivation} onChange={e=>setFormData({...formData,motivation:e.target.value})} placeholder="Your motivation..." className="w-full px-4 py-3 rounded-2xl bg-white/10 border border-white/25 text-white text-sm placeholder-white/40 resize-none focus:outline-none focus:border-green-400 focus:ring-2 focus:ring-green-400/20" />
                 </div>
-                <button type="submit" className="w-full mt-1 bg-white text-green-900 font-bold text-[15px] py-3.5 rounded-full flex items-center justify-center gap-2 hover:bg-green-50 transition-colors cursor-pointer">
+                <button type="submit" className="w-full mt-1 bg-white text-green-900 font-bold text-[15px] py-3.5 rounded-2xl flex items-center justify-center gap-2 hover:bg-green-50 transition-colors cursor-pointer">
                   <Send size={16} /> Submit Application
                 </button>
               </form>
-              <p className="text-xs text-green-300 mt-4 text-center">📅 Deadline: January 6, 2026</p>
+              <p className="text-xs text-green-300 mt-3 text-center">📅 Deadline: January 6, 2026</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* ══════ NEWS ══════ */}
-      <section className="min-h-screen bg-white py-24" id="news">
+      <section className="py-14 bg-white" id="news">
         <div className="max-w-6xl mx-auto px-8">
-          <div className="text-center mb-16">
-            <span className="inline-block bg-green-100 text-green-700 text-[11px] font-black tracking-[0.15em] uppercase px-4 py-1.5 rounded-full mb-4">Stay Updated</span>
+          <div className="text-center mb-10">
+            <span className="inline-block bg-green-100 text-green-700 text-[11px] font-black tracking-[0.15em] uppercase px-4 py-1.5 rounded-full mb-3">Stay Updated</span>
             <h2 className="font-display text-5xl text-green-900 mb-3 leading-tight">Latest News</h2>
             <p className="text-gray-500 text-base max-w-lg mx-auto leading-relaxed">Stay updated with Southern Region conservation activities, milestones and opportunities.</p>
           </div>
@@ -497,14 +526,14 @@ export default function YasconSouthern() {
                 <div className="h-48 overflow-hidden">
                   <SplashImage src={IMGS[item.splashKey]} alt={item.title} splashKey={item.splashKey} className="w-full h-full" />
                 </div>
-                <div className={`h-1.5 ${i===0?'bg-green-500':i===1?'bg-green-700':'bg-green-900'}`} />
-                <div className="p-7">
-                  <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
+                <div className={`h-1.5 ${i===0?'bg-green-400':i===1?'bg-green-500':'bg-green-600'}`} />
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
                     <span className="text-[11px] font-black text-green-700 bg-green-100 px-3 py-1 rounded-full tracking-wide">{item.category}</span>
                     <span className="text-xs text-gray-400 flex items-center gap-1"><Calendar size={11}/> {item.date}</span>
                   </div>
                   <h3 className="font-display text-xl text-green-900 mb-3 leading-snug">{item.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed mb-5">{item.excerpt}</p>
+                  <p className="text-gray-500 text-sm leading-relaxed mb-4">{item.excerpt}</p>
                   <span className="text-green-600 font-semibold text-sm">Read more →</span>
                 </div>
               </div>
@@ -514,16 +543,16 @@ export default function YasconSouthern() {
       </section>
 
       {/* ══════ GALLERY ══════ */}
-      <section className="min-h-screen bg-green-50 py-24" id="gallery">
+      <section className="py-14 bg-green-50" id="gallery">
         <div className="max-w-6xl mx-auto px-8">
-          <div className="text-center mb-16">
-            <span className="inline-block bg-green-100 text-green-700 text-[11px] font-black tracking-[0.15em] uppercase px-4 py-1.5 rounded-full mb-4">In Pictures</span>
+          <div className="text-center mb-10">
+            <span className="inline-block bg-green-100 text-green-700 text-[11px] font-black tracking-[0.15em] uppercase px-4 py-1.5 rounded-full mb-3">In Pictures</span>
             <h2 className="font-display text-5xl text-green-900 mb-3 leading-tight">Our Gallery</h2>
             <p className="text-gray-500 text-base max-w-lg mx-auto leading-relaxed">Southern Region conservation impact in pictures — our work, our people, our land.</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {galleryItems.map((img,i) => (
-              <div key={i} className="relative overflow-hidden rounded-[18px] h-56 shadow-md group">
+              <div key={i} className="relative overflow-hidden rounded-[18px] h-52 shadow-md group">
                 <SplashImage src={IMGS[img.splashKey]} alt={img.caption} splashKey={img.splashKey} className="w-full h-full" style={{ objectFit:"cover", width:"100%", height:"100%", position:"absolute", inset:0 }} />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/65 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <p className="text-white font-semibold text-sm">{img.caption}</p>
@@ -535,26 +564,26 @@ export default function YasconSouthern() {
       </section>
 
       {/* ══════ CONTACT ══════ */}
-      <section className="min-h-screen bg-white py-24" id="contact">
+      <section className="py-14 bg-white" id="contact">
         <div className="max-w-6xl mx-auto px-8">
-          <div className="text-center mb-16">
-            <span className="inline-block bg-green-100 text-green-700 text-[11px] font-black tracking-[0.15em] uppercase px-4 py-1.5 rounded-full mb-4">Reach Out</span>
+          <div className="text-center mb-10">
+            <span className="inline-block bg-green-100 text-green-700 text-[11px] font-black tracking-[0.15em] uppercase px-4 py-1.5 rounded-full mb-3">Reach Out</span>
             <h2 className="font-display text-5xl text-green-900 mb-3 leading-tight">Get In Touch</h2>
             <p className="text-gray-500 text-base max-w-lg mx-auto leading-relaxed">We'd love to hear from you — reach out to YASCON Southern Region with any questions or ideas.</p>
           </div>
-          <div className="rounded-3xl overflow-hidden h-56 mb-12 shadow-md relative">
+          <div className="rounded-3xl overflow-hidden h-48 mb-10 shadow-md relative">
             <SplashImage src={IMGS.contact} alt="YASCON community" splashKey="contact" className="w-full h-full" />
-            <div className="absolute inset-0 bg-gradient-to-r from-green-900/70 to-transparent flex items-center px-12">
+            <div className="absolute inset-0 bg-gradient-to-r from-green-700/70 to-transparent flex items-center px-12">
               <div>
                 <p className="text-green-200 text-sm font-semibold tracking-widest uppercase mb-2">Connect With Us</p>
                 <h3 className="font-display text-3xl text-white">yasconmw@outlook.com</h3>
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <div>
-              <h3 className="font-display text-2xl text-green-900 mb-6">Contact Information</h3>
-              <div className="flex flex-col gap-6 mb-8">
+              <h3 className="font-display text-2xl text-green-900 mb-5">Contact Information</h3>
+              <div className="flex flex-col gap-5 mb-7">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center text-green-600 flex-shrink-0"><Mail size={20}/></div>
                   <div>
@@ -575,7 +604,7 @@ export default function YasconSouthern() {
                     <div className="font-bold text-green-900 mb-3">Follow Us</div>
                     <div className="flex gap-2.5">
                       {[Facebook, Instagram, Linkedin].map((Icon,i) => (
-                        <a key={i} href="#" className="w-10 h-10 bg-green-900 hover:bg-green-600 rounded-full flex items-center justify-center text-white transition-colors">
+                        <a key={i} href="#" className="w-10 h-10 bg-green-600 hover:bg-green-500 rounded-full flex items-center justify-center text-white transition-colors">
                           <Icon size={17}/>
                         </a>
                       ))}
@@ -583,15 +612,15 @@ export default function YasconSouthern() {
                   </div>
                 </div>
               </div>
-              <div className="bg-green-50 rounded-2xl p-7 border-l-4 border-green-600">
-                <Heart size={26} className="text-green-600 mb-3"/>
+              <div className="bg-green-50 rounded-2xl p-6 border-l-4 border-green-600">
+                <Heart size={24} className="text-green-600 mb-3"/>
                 <h4 className="font-bold text-green-900 mb-2">Support Our Mission</h4>
                 <p className="text-sm text-gray-600 leading-relaxed">Your support — whether time, skills, or resources — helps us empower more Southern Region youth and protect our environment. Together, we create lasting change.</p>
               </div>
             </div>
-            <div className="bg-white rounded-3xl p-9 shadow-lg border border-green-50">
-              <h3 className="font-display text-2xl text-green-900 mb-7">Send Us a Message</h3>
-              <form onSubmit={handleContactSubmit} className="flex flex-col gap-5">
+            <div className="bg-white rounded-3xl p-8 shadow-lg border border-green-50">
+              <h3 className="font-display text-2xl text-green-900 mb-6">Send Us a Message</h3>
+              <form onSubmit={handleContactSubmit} className="flex flex-col gap-4">
                 {[
                   { label:"Name *", key:"name", type:"text", placeholder:"Your name" },
                   { label:"Email *", key:"email", type:"email", placeholder:"your.email@example.com" },
@@ -606,13 +635,13 @@ export default function YasconSouthern() {
                   <label className="block text-sm font-semibold text-gray-700 mb-1.5">Message *</label>
                   <textarea required rows={5} value={contactForm.message} onChange={e=>setContactForm({...contactForm,message:e.target.value})} placeholder="Your message..." className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-gray-800 resize-none focus:outline-none focus:border-green-500 focus:ring-2 focus:ring-green-100" />
                 </div>
-                <button type="submit" className="w-full bg-green-900 hover:bg-green-700 text-white font-bold text-base py-4 rounded-full flex items-center justify-center gap-2 transition-colors cursor-pointer">
+                <button type="submit" className="w-full bg-green-600 hover:bg-green-500 text-white font-bold text-base py-4 rounded-full flex items-center justify-center gap-2 transition-colors cursor-pointer">
                   <Send size={17}/> Send Message
                 </button>
               </form>
             </div>
           </div>
-          <div className="text-center mt-20 pt-8 border-t border-green-50 text-gray-400 text-sm">
+          <div className="text-center mt-14 pt-7 border-t border-green-50 text-gray-400 text-sm">
             © 2026 YASCON Southern Region · yasconmw@outlook.com · Together, let's protect Southern Malawi 🌍
           </div>
         </div>
