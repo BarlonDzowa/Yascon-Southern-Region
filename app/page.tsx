@@ -189,7 +189,7 @@ export default function YasconSouthern() {
           <SplashImage src={IMGS.hero} alt="YASCON Southern Region" splashKey="hero" className="w-full h-full" style={{ objectFit:"cover", opacity:0.35 }} />
           <div className="absolute inset-0 bg-gradient-to-br from-green-950/80 via-green-900/60 to-green-800/40" />
         </div>
-        <div className="relative z-10 max-w-6xl mx-auto px-8 py-24 lg:py-32">
+        <div className="relative z-10 max-w-6xl mx-auto px-5 py-8 lg:py-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-6">
